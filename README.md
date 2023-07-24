@@ -10,7 +10,7 @@ This repository contains the code necessary for the new and improved user authen
 
 # Steps for running:
 1. Clone the repository using this : 
-- git clone https://github.com/tbspythondev/UserAuthentication.git
+- git clone https://github.com/soumya943/soumya_ranjan_prusty.git
 
 2. Install Python package and Need to install Project Requirements for depedancy from requiremts file: 
 - pip3 install -r requirements.txt 
