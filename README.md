@@ -1,6 +1,6 @@
-## User Authentication
+## Quiz Application
 
-This repository contains the code necessary for the new and improved user authentication. The instructions below are subject to change as the codebase and the team grows.
+This repository contains the code necessary for the user login ,signup,attempt the quiz and admin can view all results.
 
 # Project Requirements
 - Python
