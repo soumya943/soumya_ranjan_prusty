@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="alert alert-success" role="alert">
+    <h1>Welcome to Our Site</h1>
+</div>
+<div class="container">
+    <h3>Login</h3>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button style="background-color:#f2f1f5; color:rgb(14, 14, 15)" class="btn btn-outline-info" type="submit">Login</button>
+    </form>
+    Don't have an Account?<a href="{% url  'signup' %}">Sign Up</a>
+</div>
+{% endblock content %}

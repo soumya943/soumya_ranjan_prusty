@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <br>
+    {% if user.is_authenticated %}
+    <div class="alert alert-success" role="alert">
+        <h1>Welcome To Quiz Application, {{ user.username }}</>
+    </div>
+    <br>
+    <form action="{% url 'submit_quiz' %}" method="post">
+        {% csrf_token %}
+        {% for question in questions %}
+            <p>{{ question.question_text }}</p>
+            {% for answer in question.answer_set.all %}
+                <input type="checkbox" name="{{ question.id }}" value="{{ answer.id }}">
+                {{ answer.answer_text }}<br>
+            {% endfor %}
+            <br>
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+    
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,51 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth demo</title>
+    <!-- this will load  css bootstrap file from online portal -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- this will load static css file from project directory -->
+    <link href="{% static 'css/baseuser.css' %}" rel="stylesheet">
+</head>
+<body>
+    <br/>
+    {% if user.is_authenticated %}
+    <div class='d-flex justify-content-between align-items-center'>
+        <div class='hom mx-3' >
+            <a href="{% url 'main' %} ">Home</a>
+        </div>
+        <div class='text-end mx-3'>
+            <a href="{% url 'logout' %} ">Logout</a>
+        </div>
+    </div>
+
+    {% endif %}  
+    <hr>
+    {% if form.errors %}
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {%for message in messages%}
+        <p id="messages">--{{message}}</p>
+        {%endfor%}
+        There was an error in data please correct this...{{form.errors}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}	
+    <div class="container">
+        {% if messages %}
+        {% for message in messages %}
+            <div id= "myDiv" class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="document.getElementById('myDiv').style.display='none'"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+        {% block content %}
+        {% endblock content %}
+    </div> 
+</body>
+</html>
+
+

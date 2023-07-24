@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <br>
+    {% if user.is_authenticated %}
+    <div class="alert alert-success" role="alert">
+        <h1>Quiz Scorecard, {{ user.username }}</>
+    </div>
+    <br>
+    <h2>Scorecard</h2>
+    <p>Total Marks: {{ total_marks }}</p>
+    <p>Correct Answers: {{ correct_answers }}</p>
+    <p>Incorrect Answers: {{ incorrect_answers }}</p>    
+    {% endif %}
+{% endblock content %}
